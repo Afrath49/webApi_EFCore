@@ -7,14 +7,14 @@
         {
             this.context = context;
         }
-        public Customer Add(Customer customer)
+        public Customer add(Customer customer)
         {
             context.Customers.Add(customer);
             context.SaveChanges();
              return customer;
         }
 
-        public Customer Delete(int id)
+        public Customer delete(int id)
         {
              Customer customer = context.Customers.Find(id);
              if(customer != null)
@@ -26,18 +26,18 @@
             
         }
 
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<Customer> getAll()
         {
             return context.Customers;
         }
 
-        public Customer GetCustomer (int id)
+        public Customer get(int id)
         {
             return context.Customers.Find(id);
        
         }
 
-        public Customer Update(Customer customer)
+        public Customer update(Customer customer)
         {
             var custom = context.Customers.Attach(customer);
             custom.State = Microsoft.EntityFrameworkCore.EntityState.Modified;

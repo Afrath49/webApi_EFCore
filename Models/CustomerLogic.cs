@@ -10,8 +10,8 @@
         public Customer Add(Customer customer)
         {
             context.Customers.Add(customer);
-             context.SaveChanges();
-            return customer;
+            context.SaveChanges();
+             return customer;
         }
 
         public Customer Delete(int id)
@@ -23,7 +23,7 @@
              context.SaveChanges();
             }
             return customer;
-
+            
         }
 
         public IEnumerable<Customer> GetAll()

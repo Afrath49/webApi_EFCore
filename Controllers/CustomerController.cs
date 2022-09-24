@@ -20,41 +20,55 @@ namespace webApi_EFCore.Controllers
         [HttpPost]
         public Task<Customer> AddCustomer(Customer customer)
         {
-            Customer custom = icustomer.Add(customer);
-            return Task.FromResult(custom);
+            return Task.Run(()=>
+            {
+                Customer custom = icustomer.Add(customer);
+                return custom;
+            });
         }
+
 
         [HttpGet]
         public Task<IEnumerable<Customer>> GetAllCustomer()
         {
-           
-           IEnumerable<Customer> custom = icustomer.GetAll();
-            return Task.FromResult(custom);
-
+            return Task.Run(() =>
+            {
+                IEnumerable<Customer> custom = icustomer.GetAll();
+                return custom;
+            });
         }
+
 
         [HttpGet("{id}")]
         public Task<Customer> Get(int id)
         {
-            Customer custom = icustomer.GetCustomer(id);
-            return Task.FromResult(custom);
+            return Task.Run(() =>
+            {
+                Customer custom = icustomer.GetCustomer(id);
+                return custom;
+            });
+       }
 
-        }
 
-       
-
-        [HttpPut]
+       [HttpPut]
         public Task<Customer> UpdateCustomer(Customer customer)
         {
-           Customer custom = icustomer.Update(customer);
-            return Task.FromResult(custom);
+            return Task.Run(() =>
+            {
+                Customer custom = icustomer.Update(customer);
+                return custom;
+            });
         }
+
 
         [HttpDelete]
         public Task<Customer> DeleteCusomer(int id)
         {
-            Customer custom = icustomer.Delete(id);
-            return Task.FromResult(custom);
+            return Task.Run(() =>
+            {
+                Customer custom = icustomer.Delete(id);
+                return custom;
+            });
         }
 
         

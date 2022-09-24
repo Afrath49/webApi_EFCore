@@ -18,9 +18,9 @@ namespace webApi_EFCore.Controllers
 
 
         [HttpPost]
-        public async Task<Customer> Add(Customer customer)
+        public Task<Customer> Add(Customer customer)
         {
-            return await Task.Run(()=>
+            return Task.Run(()=>
             {
                 Customer custom = icustomer.add(customer);
                 return custom;
@@ -29,9 +29,9 @@ namespace webApi_EFCore.Controllers
 
 
         [HttpGet] 
-        public async Task<IEnumerable<Customer>> GetAll()
+        public Task<IEnumerable<Customer>> GetAll()
         {
-            return await Task.Run(() =>
+            return Task.Run(() =>
             {
                 IEnumerable<Customer> custom = icustomer.getAll();
                 return custom;
@@ -40,9 +40,9 @@ namespace webApi_EFCore.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<Customer> Get(int id)
+        public Task<Customer> Get(int id)
         {
-            return await Task.Run(() =>
+            return Task.Run(() =>
             {
                 Customer custom = icustomer.get(id);
                 return custom;
@@ -51,9 +51,9 @@ namespace webApi_EFCore.Controllers
 
 
        [HttpPut]
-        public async Task<Customer> Update(Customer customer)
+        public Task<Customer> Update(Customer customer)
         {
-            return await Task.Run(() =>
+            return Task.Run(() =>
             {
                 Customer custom = icustomer.update(customer);
                 return custom;
@@ -63,9 +63,9 @@ namespace webApi_EFCore.Controllers
 
 
         [HttpDelete]
-        public async Task<Customer> Delete(int id)
+        public  Task<Customer> Delete(int id)
         {
-            return await Task.Run(() =>
+            return  Task.Run(() =>
             {
                 Customer custom = icustomer.delete(id);
                 return custom;
